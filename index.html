@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">S</span>
+            <h2>SpendWise</h2>
+        </div>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <nav class="navigation">
+            <a href="#" class="nav-link active">▦ Dashboard</a>
+            <a href="#activity" class="nav-link">↗ Transactions</a>
+            <a href="#categories" class="nav-link">◷ Budget</a>
+            <a href="#summary" class="nav-link">▤ Reports</a>
+            <a href="#settings" class="nav-link">⚙ Settings</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <p>Personal Finance</p>
+            <h3>Manage your money smarter.</h3>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div class="welcome">
+                <h1>Dashboard Overview</h1>
+                <p>Welcome back! Here's your financial summary.</p>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <h4>Alex Morgan</h4>
+                    <p>Personal Account</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="summary" id="summary">
+            <div class="summary-card">
+                <p>Monthly Budget</p>
+                <h2 id="budgetDisplay">$2,000.00</h2>
+                <span>Available monthly budget</span>
+            </div>
+
+            <div class="summary-card">
+                <p>Total Expenses</p>
+                <h2 id="expensesDisplay">$1,450.00</h2>
+                <span class="negative">Money spent this month</span>
+            </div>
+
+            <div class="summary-card">
+                <p>Remaining Balance</p>
+                <h2 id="balanceDisplay">$550.00</h2>
+                <span class="positive">Money remaining</span>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="section-heading">
+                <div>
+                    <h2>Spending Categories</h2>
+                    <p>Track where your money goes.</p>
+                </div>
+                <span class="period">Monthly Overview</span>
+            </div>
+
+            <div class="category-grid">
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon food">🍔</div>
+                        <span class="percentage">Food</span>
+                    </div>
+                    <h3>Food</h3>
+                    <h2 id="foodDisplay">$300.00</h2>
+                    <p>Groceries and restaurants</p>
+                    <div class="progress"><div class="progress-fill food-fill" id="foodProgress"></div></div>
+                </article>
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon transport">🚗</div>
+                        <span class="percentage">Transport</span>
+                    </div>
+                    <h3>Transport</h3>
+                    <h2 id="transportDisplay">$100.00</h2>
+                    <p>Fuel and public transport</p>
+                    <div class="progress"><div class="progress-fill transport-fill" id="transportProgress"></div></div>
+                </article>
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon rent">🏠</div>
+                        <span class="percentage">Rent</span>
+                    </div>
+                    <h3>Rent</h3>
+                    <h2 id="rentDisplay">$600.00</h2>
+                    <p>Monthly house rent</p>
+                    <div class="progress"><div class="progress-fill rent-fill" id="rentProgress"></div></div>
+                </article>
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon entertainment">🎮</div>
+                        <span class="percentage">Entertainment</span>
+                    </div>
+                    <h3>Entertainment</h3>
+                    <h2 id="entertainmentDisplay">$100.00</h2>
+                    <p>Movies and activities</p>
+                    <div class="progress"><div class="progress-fill entertainment-fill" id="entertainmentProgress"></div></div>
+                </article>
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon savings">💰</div>
+                        <span class="percentage">Savings</span>
+                    </div>
+                    <h3>Savings</h3>
+                    <h2 id="savingsDisplay">$200.00</h2>
+                    <p>Monthly savings</p>
+                    <div class="progress"><div class="progress-fill savings-fill" id="savingsProgress"></div></div>
+                </article>
+
+                <article class="category-card" tabindex="0">
+                    <div class="card-top">
+                        <div class="category-icon utilities">💡</div>
+                        <span class="percentage">Utilities</span>
+                    </div>
+                    <h3>Utilities</h3>
+                    <h2 id="utilitiesDisplay">$150.00</h2>
+                    <p>Electricity and internet</p>
+                    <div class="progress"><div class="progress-fill utilities-fill" id="utilitiesProgress"></div></div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="budget-form">
+            <h2>Update Your Budget</h2>
+            <p>Enter your monthly budget and expenses.</p>
+
+            <form id="budgetForm">
+                <label for="monthlyBudget">Monthly Budget ($)</label>
+                <input type="number" id="monthlyBudget" min="0" step="0.01" value="2000" required>
+
+                <div class="form-grid">
+                    <div>
+                        <label for="food">Food ($)</label>
+                        <input type="number" id="food" min="0" step="0.01" value="300" required>
+                    </div>
+
+                    <div>
+                        <label for="transport">Transport ($)</label>
+                        <input type="number" id="transport" min="0" step="0.01" value="100" required>
+                    </div>
+
+                    <div>
+                        <label for="rent">Rent ($)</label>
+                        <input type="number" id="rent" min="0" step="0.01" value="600" required>
+                    </div>
+
+                    <div>
+                        <label for="entertainment">Entertainment ($)</label>
+                        <input type="number" id="entertainment" min="0" step="0.01" value="100" required>
+                    </div>
+
+                    <div>
+                        <label for="savings">Savings ($)</label>
+                        <input type="number" id="savings" min="0" step="0.01" value="200" required>
+                    </div>
+
+                    <div>
+                        <label for="utilities">Utilities ($)</label>
+                        <input type="number" id="utilities" min="0" step="0.01" value="150" required>
+                    </div>
+                </div>
+
+                <button type="submit">Calculate My Budget</button>
+            </form>
+
+            <p id="formMessage" role="status"></p>
+        </section>
+
+        <section class="recent-activity" id="activity">
+            <h2>Budget Report</h2>
+            <div id="report">
+                <p>Update your budget to see your financial report.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 SpendWise. Manage your money smarter.</p>
+        </footer>
+
+    </main>
+</div>
+</body>
+</html>
